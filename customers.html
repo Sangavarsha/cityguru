@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .review-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.heading{
+   border-radius: 1rem;
+   box-sizing: border-box;
+   width: 320px;
+  padding: 10px;
+  border: 5px solid rgb(11, 11, 11);
+  margin: 0;
+  background-color: beige;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.rating-input {
+  display: flex;
+  align-items: center;
+}
+.rate{
+    padding-top: 3rem;
+}
+
+.rating-input input[type="radio"] {
+  display: none;
+  width:100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.rating-input label {
+  color: #ccc;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.rating-input label i {
+  transition: color 0.3s;
+}
+
+.rating-input input[type="radio"]:checked ~ label {
+  color: #ffc107;
+}
+
+.rating-input input[type="radio"]:checked ~ label i {
+  color: #ffc107;
+}
+.btn:hover{
+    cursor: pointer;
+    background: cadetblue;
+}
+.btn{
+    border-radius: 1rem;
+   box-sizing: border-box;
+   width: 90px;
+  padding: 7px;
+  border: 5px solid rgb(11, 11, 11);
+  margin: 0;
+  background-color: azure;
+  text-decoration: none;
+}
+
+    </style>
+    <script>
+        document.getElementById("reviewForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  var rating = document.querySelector('input[name="rating"]:checked').value;
+  var review = document.getElementById("review").value;
+  
+  // Perform any necessary validation or processing
+  
+  // Send the data to a server or perform any desired actions
+  
+  // Clear the form fields
+  document.getElementById("review").value = "";
+  
+  // Clear the rating selection
+  var ratings = document.querySelectorAll('input[name="rating"]');
+  for (var i = 0; i < ratings.length; i++) {
+    ratings[i].checked = false;
+  }
+});
+
+    </script>
+</head>
+<body>
+
+
+<div class="review-form">
+  <h2 class="heading">Rate and Review</h2>
+
+  <form id="reviewForm">
+    <div class="form-group">
+      <label  class ="rate" for="rating">Rating:</label>
+      <div class="rating-input">
+        <input type="radio" id="star5" name="rating" value="5" required>
+        <label for="star5"><i class="fas fa-star"></i></label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4"><i class="fas fa-star"></i></label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3"><i class="fas fa-star"></i></label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2"><i class="fas fa-star"></i></label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1"><i class="fas fa-star"></i></label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="review">Review:<br></label>
+      <textarea id="review" name="review" required></textarea>
+    </div>
+
+    <a  href="#" class="btn">Submit</a>
+  </form>
+</div>
+
+</body>
+</html>
