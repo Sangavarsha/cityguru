@@ -1,2 +1,2 @@
 # cityguru
-my cityguru project- A frontend web devlopment project
+ Web devlopment project
